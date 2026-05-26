@@ -13,8 +13,6 @@ import {
   CheckCircle, 
   AlertTriangle, 
   LogOut, 
-  ChevronLeft, 
-  ChevronRight, 
   Info,
   Phone,
   File,
@@ -510,7 +508,7 @@ export default function LifeUnboundPortal() {
             </div>
 
             {showAddShiftModal && (
-              <div className="fixed inset-0 bg-slate-900/30 backdrop-blur-xs flex justify-center items-center p-4 z-50">
+              <div className="fixed inset-0 bg-slate-900/30 flex justify-center items-center p-4 z-50">
                 <div className="bg-white p-6 rounded-2xl shadow-lg max-w-sm w-full border text-xs space-y-3">
                   <h3 className="text-sm font-bold text-slate-800 border-b pb-2">Schedule Care Shift</h3>
                   <form onSubmit={handleCreateShift} className="space-y-3">
@@ -582,7 +580,7 @@ export default function LifeUnboundPortal() {
                         </div>
                       </div>
                       {selectedParticipantProfile.sharepoint_folder_url && (
-                        <button onClick={() => window.open(selectedParticipantProfile.sharepoint_folder_url, '_blank')} className="bg-slate-50 hover:bg-sky-50 border hover:text-sky-600 font-bold px-3 py-2 rounded-xl flex items-center gap-1"><File className="w-3.5 h-3.5 text-sky-500" /> Documents Folder</button>
+                        <button onClick={() => window.open(selectedParticipantProfile.sharepoint_folder_url, '_blank')} className="bg-slate-50 border hover:text-sky-600 font-bold px-3 py-2 rounded-xl flex items-center gap-1"><File className="w-3.5 h-3.5 text-sky-500" /> Documents Folder</button>
                       )}
                     </div>
 
@@ -648,10 +646,10 @@ export default function LifeUnboundPortal() {
               <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm md:col-span-2 space-y-3">
                 <h3 className="text-xs font-bold text-slate-800 border-b pb-2">Your Published Availability Blocks</h3>
                 <div className="space-y-2 max-h-[300px] overflow-y-auto pr-1">
-                  {availabilities.filter(a=>a.staff_id===currentUser.id).length === 0 ? (
+                  {availabilities.filter(a=>a.staff_id===currentUser?.id).length === 0 ? (
                     <p className="text-slate-400 italic text-center py-8">No availability logs registered.</p>
                   ) : (
-                    availabilities.filter(a=>a.staff_id===currentUser.id).map((a: any) => (
+                    availabilities.filter(a=>a.staff_id===currentUser?.id).map((a: any) => (
                       <div key={a.id} className="bg-slate-50 border p-3 rounded-xl flex justify-between items-center">
                         <div>
                           <p className="font-bold text-slate-800">Available Custom Block</p>
